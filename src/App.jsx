@@ -3,6 +3,8 @@ import './App.css';
 import Die from './components/Die';
 
 function App() {
+    const [dice, setDice] = useState(getDice());
+
     function getDice() {
         const diceArr = [];
         for (let i = 0; i < 10; i++) {
@@ -12,7 +14,7 @@ function App() {
         return diceArr;
     }
 
-    const diceElements = getDice().map((number, index) => <Die key={index} value={number} />)
+    const diceElements = dice.map((die, index) => <Die key={index} value={die} />)
 
     return (
         <main className='container'>
