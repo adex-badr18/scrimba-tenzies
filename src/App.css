@@ -55,3 +55,7 @@ p {
     line-height: 24px;
     cursor: pointer;
 }
+
+.held {
+    background-color: #59E391;
+}
