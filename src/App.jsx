@@ -24,7 +24,9 @@ function App() {
         setDice(getDice());
     }
 
-    const diceElements = dice.map(die => <Die key={die.id} value={die.value} />)
+    const diceElements = dice.map(die => (
+        <Die key={die.id} value={die.value} isHeld={die.isHeld} />
+    ));
 
     return (
         <main className='container'>
