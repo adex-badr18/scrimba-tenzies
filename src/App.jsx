@@ -6,15 +6,18 @@ import { nanoid } from 'nanoid';
 function App() {
     const [dice, setDice] = useState(getDice());
 
+    function generateNewDie() {
+        return {
+            id: nanoid(),
+            value: Math.ceil(Math.random() * 6),
+            isHeld: false
+        };
+    }
+
     function getDice() {
         const diceArr = [];
         for (let i = 0; i < 10; i++) {
-            const obj = {
-                id: nanoid(),
-                value: Math.ceil(Math.random() * 6),
-                isHeld: false
-            }
-            diceArr.push(obj);
+            diceArr.push(generateNewDie());
         }
 
         return diceArr;
@@ -22,9 +25,8 @@ function App() {
 
     function rollDice() {
         setDice(prevDice => prevDice.map(die => {
-            return die.isHeld ? die : {id: nanoid(), value: Math.ceil(Math.random() * 6), isHeld: false}
+            return die.isHeld ? die : generateNewDie()
         }));
-        console.log(dice);
     }
 
     function holdDie(dieId) {
