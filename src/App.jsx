@@ -6,7 +6,7 @@ function App() {
     function getTenRandomNumbers() {
         const diceArr = [];
         for (let i = 0; i < 10; i++) {
-            diceArr.push(Math.floor(Math.random() * 6) + 1);
+            diceArr.push(Math.ceil(Math.random() * 6));
         }
 
         return diceArr;
