@@ -76,3 +76,11 @@ p {
     padding: 10px 35px;
     border: none;
 }
+
+.roll-btn:focus {
+    outline: none;
+}
+
+.roll-btn:active {
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.5);
+}
