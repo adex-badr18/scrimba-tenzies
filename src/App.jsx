@@ -21,7 +21,10 @@ function App() {
     }
 
     function rollDice() {
-        setDice(getDice());
+        setDice(prevDice => prevDice.map(die => {
+            return die.isHeld ? die : {id: nanoid(), value: Math.ceil(Math.random() * 6), isHeld: false}
+        }));
+        console.log(dice);
     }
 
     function holdDie(dieId) {
