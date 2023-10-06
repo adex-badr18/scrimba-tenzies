@@ -75,6 +75,7 @@ p {
     color: #FFFFFF;
     padding: 10px 35px;
     border: none;
+    cursor: pointer;
 }
 
 .roll-btn:focus {
