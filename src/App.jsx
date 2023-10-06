@@ -3,7 +3,7 @@ import './App.css';
 import Die from './components/Die';
 
 function App() {
-    function getTenRandomNumbers() {
+    function getDice() {
         const diceArr = [];
         for (let i = 0; i < 10; i++) {
             diceArr.push(Math.ceil(Math.random() * 6));
@@ -12,7 +12,7 @@ function App() {
         return diceArr;
     }
 
-    const diceElements = getTenRandomNumbers().map((number, index) => <Die key={index} value={number} />)
+    const diceElements = getDice().map((number, index) => <Die key={index} value={number} />)
 
     return (
         <main className='container'>
@@ -25,6 +25,8 @@ function App() {
                 <div className="dice-container">
                     {diceElements}
                 </div>
+
+                <button className="roll-btn">Roll</button>
             </div>
         </main>
     )
