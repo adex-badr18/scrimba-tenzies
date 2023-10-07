@@ -41,6 +41,12 @@ function App() {
     }
 
     function rollDice() {
+        if (tenzies) {
+            setDice(getDice());
+            setTenzies(prevState => !prevState);
+            return;
+        }
+        
         setDice(prevDice => prevDice.map(die => {
             return die.isHeld ? die : generateNewDie()
         }));
