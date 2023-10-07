@@ -3,10 +3,12 @@ import './App.css';
 import Die from './components/Die';
 import { nanoid } from 'nanoid';
 import Confetti from 'react-confetti';
+import useWindowSize from 'react-use/lib/useWindowSize';
 
 function App() {
     const [dice, setDice] = useState(getDice());
     const [tenzies, setTenzies] = useState(false);
+    const {width, height} = useWindowSize();
 
     useEffect(() => {
         const isSatisfied = dice.every(die => {
@@ -62,6 +64,7 @@ function App() {
 
     return (
         <main className='container'>
+            {tenzies && <Confetti width={width} height={height} />}
             <div className="tenzies--container">
                 <h1 className="title">Tenzies</h1>
                 <p>
@@ -74,7 +77,6 @@ function App() {
 
                 <button className="roll-btn" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
             </div>
-            {tenzies && <Confetti />}
         </main>
     )
 }
