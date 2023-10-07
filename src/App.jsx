@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Die from './components/Die';
 import { nanoid } from 'nanoid';
+import Confetti from 'react-confetti';
 
 function App() {
     const [dice, setDice] = useState(getDice());
@@ -73,6 +74,7 @@ function App() {
 
                 <button className="roll-btn" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
             </div>
+            {tenzies && <Confetti />}
         </main>
     )
 }
