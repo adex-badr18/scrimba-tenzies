@@ -1,10 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Die from './components/Die';
 import { nanoid } from 'nanoid';
 
 function App() {
     const [dice, setDice] = useState(getDice());
+    const [tenzies, setTenzies] = useState(false);
+
+    useEffect(() => {
+        const isSatisfied = dice.every(die => {
+            if (die.isHeld && die.value === dice[0].value) {
+                return true;
+            }
+        });
+
+        if (isSatisfied) {
+            setTenzies(true);
+            console.log('You won!');
+        }
+    }, [dice]);
 
     function generateNewDie() {
         return {
